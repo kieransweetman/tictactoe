@@ -18,20 +18,28 @@
 const Gameboard = (() => {
   const board = () => {
     let board = {
-      t1: null,
-      t2: null,
-      t3: null,
-      m1: null,
-      m2: null,
-      m3: null,
-      b1: null,
-      b2: null,
-      b3: null,
+      t1: "",
+      t2: "",
+      t3: "",
+      m1: "",
+      m2: "",
+      m3: "",
+      b1: "",
+      b2: "",
+      b3: "",
     };
     return board;
   };
 
-  return { board };
+  const displayBoard = (board) => {
+    for (const square in board) {
+      const value = board[square];
+      const position = document.querySelector(`#${square}`);
+      position.textContent = value;
+    }
+  };
+
+  return { board, displayBoard };
 })();
 
 const Player = () => {
@@ -41,22 +49,14 @@ const Player = () => {
   return { turn };
 };
 
-const Computer = (() => {
-  const turn = () => {
-    let move = Math.floor(Math.random() * 2);
-    return move;
-  };
-
-  return { turn };
-})();
-
 const p1 = Player();
 const p2 = Player();
-
-const main = ((player1, player2, board = Gameboard) => {
-  board = Gameboard.board();
-
+const main = ((player1, player2, board = Gameboard.board()) => {
+  console.log(board);
   board.t1 = player1.turn("X");
   board.m2 = player2.turn("O");
+  board.t3 = player1.turn("X");
+  board.b2 = player2.turn("O");
   console.log(board);
+  Gameboard.displayBoard(board);
 })(p1, p2);

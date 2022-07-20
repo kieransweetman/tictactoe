@@ -1,0 +1,20 @@
+html, body, main{
+    margin: 0px 0px auto;
+    padding: 0px 0px;
+}
+
+#board{
+    padding: 2em 2em;
+}
+
+#board * {
+    height: 90%;
+    width: 90%;
+    padding: 1em 1em;
+    background-color: brown;
+    border-radius: 5px;
+}
+
+#board *:hover{
+    transform: scale(110%);
+}
