@@ -1,24 +1,8 @@
-// const Player = (name, lvl) => {
-//   this.name = name;
-//   this.lvl = lvl;
-
-//   const health = () => this.lvl * 3;
-//   const moves = () => playerMoves(this.lvl, health());
-
-//   return { lvl, health, moves };
-// };
-
-// const playerMoves = (lvl, health) => {
-//   let attack = () => lvl * 40;
-//   let defend = () => health() * 45;
-//   return { attack, defend };
-// };
-
 // booard module
 const Gameboard = (() => {
   const board = () => {
     let board = {
-      t1: null,
+      t1: 1,
       t2: null,
       t3: null,
       m1: null,
@@ -39,6 +23,10 @@ const Gameboard = (() => {
     }
   };
 
+  const marker = () => {
+    //let user mark his choice
+  };
+
   return { board, displayBoard };
 })();
 
@@ -49,9 +37,16 @@ const Player = () => {
   return { turn };
 };
 
+const p1 = Player();
+const p2 = Player();
 const main = ((board = Gameboard.board()) => {
-  const p1 = Player();
-  const p2 = Player();
+  const game = () => {
+    for (let i = 0; i <= 9; i++) {
+      console.log(i);
+    }
+  };
 
   Gameboard.displayBoard(board);
-})(p1, p2);
+})();
+
+// how can i split up my tasks so to not clutter my code
